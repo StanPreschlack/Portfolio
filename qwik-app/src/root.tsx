@@ -1,7 +1,7 @@
 import { component$, useStyles$ } from '@builder.io/qwik';
 import { QwikCity, RouterOutlet, ServiceWorkerRegister } from '@builder.io/qwik-city';
 import Main from './components/Main'
-import Mouse from './components/Links'
+import Links from './components/Links'
 
 import globalStyles from './global.css?inline';
 
@@ -21,11 +21,11 @@ export default component$(() => {
         <link rel="manifest" href="/manifest.json" />
       </head>
       <body lang="en">
+        <Links />
         <Main />
-        <Mouse />
         <RouterOutlet />
         <ServiceWorkerRegister />
       </body>
     </QwikCity>
-  );
-});
+  )
+})
