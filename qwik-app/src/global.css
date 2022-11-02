@@ -19,6 +19,7 @@
 * {
   padding: 0;
   margin: 0;
+  cursor: default;
 }
 
 body {
@@ -38,6 +39,7 @@ body {
   transform: translate(-50%, -50%);
   font-family: main;
   font-size: 2rem;
+  cursor: arrow;
 }
 
 #main-name span {
@@ -47,7 +49,6 @@ body {
 
 #main-name span:hover {
   font-size: 6rem;
-  cursor: grab;
   color: var(--hightlight-color);
   text-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
 }
@@ -58,6 +59,7 @@ body {
 
 #links img:hover {
   border-bottom: 1px solid var(--hightlight-color);
+  cursor: grab;
 }
 
 #profile_img {
@@ -73,3 +75,97 @@ hr {
   margin-top: 20px;
   margin-bottom: 20px;
 }
+
+#skill_icons {
+  position: absolute;
+  width: 500px;
+  height: 500px;
+  border-radius: 50%;
+  top: calc(50% - 250px);
+  left: calc(50% - 250px);
+  animation-name: circle;
+  animation-duration: 40s;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+  transform-origin: center center;
+}
+
+#skill_icons img {
+  position:absolute;
+  width: 75px;
+  transform-origin: center center;
+  animation-name: icon;
+  animation-duration: 40s;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+  transition: 2s;
+}
+
+#skill_icons img:hover {
+  width: 100px;
+  cursor: grab;
+}
+
+#c {
+  left: calc(50% - (75px)/2);
+}
+
+#java {
+  top: calc(50% - (75px)/2);;
+  left: calc(100% - 75px);
+}
+
+#ts {
+  top: calc(50% - (75px)/2);
+}
+ 
+#docker {
+  left: calc(50% - (75px)/2);
+  top: calc(100% - 75px);
+}
+
+#react {
+  left: calc(75% - 20px);
+  top: calc(75% - 20px);
+}
+
+#python {
+  left: 70px;
+  top: calc(75% - 20px);
+}
+
+#tailwind {
+  top: 70px;
+  left: calc(75% - 20px);
+}
+
+#qwik {
+  left: 70px;
+  top: 70px;
+}
+
+#button_container {
+  position: absolute;
+  display: flex;
+  flex-direction: row;
+  left: 50%;
+  transform: translateX(-50%);
+  top: 20px;
+}
+
+#button_container button {
+  
+}
+
+@keyframes circle {
+  from {transform: rotate(0);}
+  to {transform: rotate(360deg);}
+}
+
+@keyframes icon {
+  from {transform: rotate(360deg);}
+  to {transform: rotate(0);}
+}
+
+
+

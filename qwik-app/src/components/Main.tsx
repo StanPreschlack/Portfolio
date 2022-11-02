@@ -1,65 +1,32 @@
-import { component$ } from '@builder.io/qwik'
+import { component$, useStore } from '@builder.io/qwik'
+import Projects from './Projects'
+import Skills from './Skills'
+import Home from './Home'
 
 export default component$(() => {
+    const store = useStore({projectVisible: false, skillsVisible: false, homeVisible: true})
     return (
-      <div id="main-name">
-          <img id="profile_img" src='../public/images/profile.png'></img>
-          <h1>
-            <span>S</span>
-            <span>t</span>
-            <span>a</span>
-            <span>n</span>
-            <span> </span>
-            <span>P</span>
-            <span>r</span>
-            <span>e</span>
-            <span>s</span>
-            <span>c</span>
-            <span>h</span>
-            <span>l</span>
-            <span>a</span>
-            <span>c</span>
-            <span>k</span>
-        </h1>
-        {/* <div>
-            <span>-</span>
-            <span>-</span>
-            <span>-</span>
-            <span>-</span>
-            <span>-</span>
-            <span>-</span>
-            <span>-</span>
-            <span>-</span>
-        </div> */}
-        <p>
-            <span>S</span>
-            <span>o</span>
-            <span>f</span>
-            <span>t</span>
-            <span>w</span>
-            <span>a</span>
-            <span>r</span>
-            <span>e</span>
-            <span> </span>
-            <span>D</span>
-            <span>e</span>
-            <span>v</span>
-            <span>e</span>
-            <span>l</span>
-            <span>o</span>
-            <span>p</span>
-            <span>e</span>
-            <span>r</span>
-        </p>
-        <hr></hr>
-        <div id="links">
-            {/* github */}
-            <a rel="" href="https://github.com/StanPreschlack" target="_blank"><img src='../public/images/icons/github.png' alt='image missing!!'></img></a>
-            {/* linkedin */}
-            <a rel="" href="https://www.linkedin.com/in/stan-preschlack-49aa211b2/" target="_blank"><img src='../public/images/icons/linkedin.png' alt='image missing!!'></img></a>
-            {/* email */}
-            <a rel="" href="mailto:spp9311@nyu.edu" target="_blank"><img src='../public/images/icons/email.png'></img></a>
+        <div>
+            <div id="button_container">
+                <button className="learn-more" onClick$={() => {
+                    store.homeVisible = false
+                    store.projectVisible = true
+                    store.skillsVisible = false
+                }}>projects</button>
+                <button onClick$={() => {
+                    store.homeVisible = true
+                    store.projectVisible = false
+                    store.skillsVisible = false
+                }}>home</button>
+                <button onClick$={() => {
+                    store.homeVisible = false
+                    store.projectVisible = false
+                    store.skillsVisible = true
+                }}>skills</button>
+            </div>
+            {store.projectVisible? <Projects /> : null }
+            {store.skillsVisible? <Skills /> : null }
+            {store.homeVisible? <Home /> : null }
         </div>
-      </div>
     )
 })

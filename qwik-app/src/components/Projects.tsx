@@ -2,8 +2,8 @@ import { component$ } from '@builder.io/qwik'
 
 export default component$(() => {
     return (
-      <div id="links">
-          
-      </div>
+        <div>
+            
+        </div>
     )
 })
