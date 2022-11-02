@@ -11,8 +11,8 @@
 }
 
 :root {
-  --text-color: #ffffff;
-  --theme-color: #0f449d;
+  --text-color: #132a4f;
+  --theme-color: #fff;
   --hightlight-color: rgb(237, 192, 67);
 }
 
@@ -20,10 +20,32 @@
   padding: 0;
   margin: 0;
   cursor: default;
+  font-family: main;
 }
 
 body {
   background-color: var(--theme-color);
+}
+
+/*
+button styles
+*/
+
+#theme_button {
+  position: absolute;
+  background-color: var(--theme-color);
+  color: var(--text-color);
+  bottom: 10px;
+  right: 10px;
+  border: 2px solid var(--text-color);
+  height: 25px;
+  width: 100px;
+  border-radius: 0 0 5px 0;
+}
+
+#theme_button:hover {
+  cursor: grab;
+  border: 2px solid var(--hightlight-color);
 }
 
 /* start page styles */
@@ -37,7 +59,6 @@ body {
   left: 50%;
   top: 50%;
   transform: translate(-50%, -50%);
-  font-family: main;
   font-size: 2rem;
   cursor: arrow;
 }
@@ -144,17 +165,14 @@ hr {
   top: 70px;
 }
 
-#button_container {
+#skills_desc {
   position: absolute;
-  display: flex;
-  flex-direction: row;
+  top: 50%;
   left: 50%;
-  transform: translateX(-50%);
-  top: 20px;
-}
-
-#button_container button {
-  
+  transform: translate(-50%, -50%);
+  text-align: center;
+  color: var(--text-color);
+  width: 300px;
 }
 
 @keyframes circle {
@@ -167,5 +185,28 @@ hr {
   to {transform: rotate(0);}
 }
 
+#button_container {
+  position: absolute;
+  display: flex;
+  flex-direction: row;
+  left: 50%;
+  transform: translateX(-50%);
+  top: 20px;
+}
 
+#button_container button {
+  height: 50px;
+  width: 100px;
+  margin-left: 10px;
+  margin-right: 10px;
+  background-color: var(--text-color);
+  border: 2px solid var(--theme-color);
+  color: var(--theme-color);
+}
 
+#button_container button:hover {
+  cursor: grab;
+  background-color: var(--theme-color);
+  border: 2px solid var(--text-color);
+  color: var(--text-color);
+}

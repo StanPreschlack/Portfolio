@@ -1,6 +1,7 @@
 import { component$ } from '@builder.io/qwik'
  
-export default component$(() => {
+//true for dark false for light
+export default component$(({mode}: {mode: boolean}) => {
     return (
         <div id="main-name">
             <img id="profile_img" src='../public/images/profile.png'></img>
@@ -44,11 +45,11 @@ export default component$(() => {
                 <hr></hr>
                 <div id="links">
                     {/* github */}
-                    <a rel="" href="https://github.com/StanPreschlack" target="_blank"><img src='../public/images/icons/github.png' alt='image missing!!'></img></a>
+                    <a rel="" href="https://github.com/StanPreschlack" target="_blank"><img src={mode ? '../public/images/icons/github_l.png' : '../public/images/icons/github_d.png'} alt='image missing!!'></img></a>
                     {/* linkedin */}
-                    <a rel="" href="https://www.linkedin.com/in/stan-preschlack-49aa211b2/" target="_blank"><img src='../public/images/icons/linkedin.png' alt='image missing!!'></img></a>
+                    <a rel="" href="https://www.linkedin.com/in/stan-preschlack-49aa211b2/" target="_blank"><img src={mode ? '../public/images/icons/linkedin_l.png' : '../public/images/icons/linkedin_d.png'} alt='image missing!!'></img></a>
                     {/* email */}
-                    <a rel="" href="mailto:spp9311@nyu.edu" target="_blank"><img src='../public/images/icons/email.png'></img></a>
+                    <a rel="" href="mailto:spp9311@nyu.edu" target="_blank"><img src={mode ? '../public/images/icons/email_l.png' : '../public/images/icons/email_d.png'}></img></a>
                 </div>
         </div>
     )
