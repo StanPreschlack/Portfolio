@@ -1,2 +1,3 @@
 # portfolio
-A personal portfolio website
+A personal portfolio website made using the beta qwik framework
+
