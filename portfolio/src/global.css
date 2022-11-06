@@ -39,7 +39,7 @@ button styles
   right: 10px;
   border: 2px solid var(--text-color);
   height: 5vh;
-  width: 25vw;
+  width: calc(fit-content + 10px);
   max-width: 150px;
   border-radius: 0 0 5px 0;
   font-size: 2vh;
@@ -198,7 +198,8 @@ hr {
 
 #button_container button {
   height: 5vh;
-  width: fit-content;
+  width: 20vw;
+  max-width: 150px;
   margin-left: 10px;
   margin-right: 10px;
   background-color: var(--text-color);
