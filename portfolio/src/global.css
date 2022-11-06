@@ -7,7 +7,7 @@
  */
 @font-face {
   font-family: main;
-  src: url('../public/fonts/Abril_Fatface/AbrilFatface-Regular.ttf');
+  src: url('/fonts/Abril_Fatface/AbrilFatface-Regular.ttf');
 }
 
 :root {
