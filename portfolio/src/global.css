@@ -220,11 +220,12 @@ hr {
 }
 
 #projects a {
-  color: var(--highlight-color); 
+  color: var(--text-color); 
 }
 
 #projects a:hover {
   cursor: pointer;
+  color: var(--highlight-color);
 }
 
 
