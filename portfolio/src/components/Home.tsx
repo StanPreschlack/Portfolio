@@ -4,7 +4,7 @@ import { component$ } from '@builder.io/qwik'
 export default component$(({mode}: {mode: boolean}) => {
     return (
         <div id="main-name">
-            <img id="profile_img" src='../public/images/profile.png'></img>
+            <img id="profile_img" src='portfolio/src/images/profile.png'></img>
                 <h1>
                     <span>S</span>
                     <span>t</span>
