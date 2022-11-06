@@ -238,4 +238,7 @@ hr {
     color: var(--highlight-color);
     text-shadow: none;  
   }
+  * {
+    font-family: sans-serif;
+  }
 }
