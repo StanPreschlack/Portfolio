@@ -20,7 +20,6 @@ export default component$(() => {
       <head>
         <meta charSet="utf-8" />
         <link rel="manifest" href="/manifest.json" />
-        <link rel="stylesheet" href="/styles.scss" />
       </head>
       <body lang="en">
         <Main mode={store.theme}/>
