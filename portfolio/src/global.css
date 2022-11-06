@@ -232,4 +232,10 @@ hr {
   color: var(--highlight-color);
 }
 
-
+@media (max-width: 1000px) {
+  #main-name span:hover { 
+    font-size: 3rem;
+    color: var(--highlight-color);
+    text-shadow: none;  
+  }
+}
