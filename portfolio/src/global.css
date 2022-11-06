@@ -39,8 +39,8 @@ button styles
   right: 10px;
   border: 2px solid var(--text-color);
   height: 5vh;
-  width: calc(fit-content + 10px);
-  max-width: 150px;
+  width: fit-content;
+  padding: 10px;
   border-radius: 0 0 5px 0;
   font-size: 2vh;
 }
