@@ -45,7 +45,7 @@ export default component$(({mode}: {mode: boolean}) => {
                 <hr></hr>
                 <div id="links">
                     {/* github */}
-                    <a rel="" href="https://github.com/StanPreschlack" target="_blank"><img src={mode ? '../public/images/icons/github_l.png' : '../public/images/icons/github_d.png'} alt='image missing!!'></img></a>
+                    <a rel="" href="https://github.com/StanPreschlack" target="_blank"><img src={mode ? 'portfolio/src/images/icons/github_l.png' : '../public/images/icons/github_d.png'} alt='image missing!!'></img></a>
                     {/* linkedin */}
                     <a rel="" href="https://www.linkedin.com/in/stan-preschlack-49aa211b2/" target="_blank"><img src={mode ? '../public/images/icons/linkedin_l.png' : '../public/images/icons/linkedin_d.png'} alt='image missing!!'></img></a>
                     {/* email */}
