@@ -216,6 +216,11 @@ hr {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+  color: var(--text-color);
+}
+
+#projects a {
+  color: var(--highlight-color); 
 }
 
 #projects a:hover {
