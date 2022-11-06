@@ -49,7 +49,7 @@ export default component$(({mode}: {mode: boolean}) => {
                     {/* linkedin */}
                     <a rel="" href="https://www.linkedin.com/in/stan-preschlack-49aa211b2/" target="_blank"><img src={mode ? '/images/icons/linkedin_l.png' : '/images/icons/linkedin_d.png'} alt='image missing!!'></img></a>
                     {/* email */}
-                    <a rel="" href="mailto:spp9311@nyu.edu" target="_blank"><img src={mode ? '../public/images/icons/email_l.png' : '/images/icons/email_d.png'}></img></a>
+                    <a rel="" href="mailto:spp9311@nyu.edu" target="_blank"><img src={mode ? '/images/icons/email_l.png' : '/images/icons/email_d.png'}></img></a>
                 </div>
         </div>
     )
