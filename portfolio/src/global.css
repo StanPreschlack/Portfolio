@@ -198,8 +198,7 @@ hr {
 
 #button_container button {
   height: 5vh;
-  width: 20vw;
-  max-width: 150px;
+  width: fit-content;
   margin-left: 10px;
   margin-right: 10px;
   background-color: var(--text-color);
