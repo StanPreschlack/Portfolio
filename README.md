@@ -1,3 +1,3 @@
 # portfolio
-A personal portfolio website made using the beta qwik framework
+The code for the website stan-preschlack.com. Build using the beta html-first qwik framework!
 
