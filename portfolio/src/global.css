@@ -210,3 +210,17 @@ hr {
   border: 2px solid var(--text-color);
   color: var(--text-color);
 }
+
+#projects {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+#projects a:hover {
+  cursor: pointer;
+}
+
+
+  
