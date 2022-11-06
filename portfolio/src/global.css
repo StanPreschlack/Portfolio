@@ -42,7 +42,7 @@ button styles
   width: 25vw;
   max-width: 150px;
   border-radius: 0 0 5px 0;
-  font-size: 1rem;
+  font-size: 1em;
 }
 
 #theme_button:hover {
@@ -71,7 +71,7 @@ button styles
 }
 
 #main-name span:hover {
-  font-size: 6rem;
+  font-size: calc(6rem + 20px);
   color: var(--hightlight-color);
   text-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
 }
