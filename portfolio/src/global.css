@@ -242,3 +242,100 @@ hr {
     font-family: sans-serif;
   }
 }
+
+.proj-img img {
+  position:relative;
+  bottom: 0;
+  height: 250px;
+}
+
+.proj-img:hover {
+  cursor: pointer;
+}
+
+.tooltiptext {
+  display: none;
+  width: 120px;
+  background-color: var(--text-color);
+  color: #fff;
+  text-align: center;
+  padding: 5px 0;
+  border-radius: 6px;
+ 
+  /* Position the tooltip text - see examples below! */
+  position: absolute;
+  z-index: 1;
+}
+
+.project:hover .tooltiptext {
+  display: inline;
+  cursor: pointer;
+}
+
+.tooltiptext {
+  color: var(--theme-color);
+  background-color: var(--text-color);
+}
+
+.project {
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
+  height: fit-content;
+  width: fit-content;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  border: 2px solid #132a4f;
+  border-bottom: 10px solid #132a4f;
+}
+.project:hover {
+  cursor: pointer;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+}
+
+.project p {
+  text-align: center;
+  color: var(--text-color);
+  font-size: 2rem;
+  border-bottom: 2px solid var(--text-color);
+}
+
+.project a {
+  background-color: var(--highlight-color);
+}
+
+#projects {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  width: fit-content;
+  height: fit-content;
+  left: 50%;
+  top: 200px;
+  transform: translateX(-50%);
+}
+
+#msg {
+  position: absolute;
+  bottom: 200px;
+  left: 50%;
+  transform: translateX(-50%);
+  color: var(--text-color);
+}
+#msg a {
+  color: var(--text-color);
+}
+#msg a:hover {
+  cursor: pointer;
+}
+#tec {
+  position: relative;
+  left: 50%;
+  height: 20px;
+  transform: translate(5px, -5px);
+}
+#tec img {
+  position: relative;
+  height: 10px;
+  margin-left: 10px;
+}

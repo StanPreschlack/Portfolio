@@ -32,7 +32,7 @@ export default component$(() => {
             <div id="skills_desc">
                 <h2>Skills</h2>
                 <hr></hr>
-                <p>These icons represent technologies I have worked with. Click on each one to learn more.</p>
+                <p>These icons represent some technologies I have worked with. Click on each one to learn more.</p>
             </div>
         </>
     )

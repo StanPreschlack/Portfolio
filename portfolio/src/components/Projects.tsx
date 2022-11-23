@@ -1,9 +1,13 @@
 import { component$ } from '@builder.io/qwik'
+import Project from './Project'
 
 export default component$(() => {
     return (
-        <div id="projects">
-            <p>I will be updating this page shortly! In the meantime you can find a lot of my code on my github <a rel="" href="https://github.com/StanPreschlack" target="_blank">HERE</a> </p>
-        </div>
+        <>
+            <div id="projects">
+                <Project src="images/docs.png" name="Document Editor" ref="https://docu-share-2daee.web.app/" techOne='images/vue.png' techTwo='images/firebase.png'/>
+            </div>
+            <p id="msg">I will be updating this page shortly! In the meantime you can find a lot of my code on my github <a rel="" href="https://github.com/StanPreschlack" target="_blank">HERE</a> </p>
+        </>
     )
 })
