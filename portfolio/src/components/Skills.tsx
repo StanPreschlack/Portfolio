@@ -22,11 +22,11 @@ export default component$(() => {
                 <a href="https://github.com/BuilderIO/qwik" target="_blank">    
                     <img id="qwik" src="/images/skill_icons/qwik.png" alt="no image"></img>
                 </a>   
-                <a href="https://en.wikipedia.org/wiki/Docker_(software)" target="_blank">    
-                    <img id="docker" src="/images/skill_icons/docker.png" alt="no image"></img>
+                <a href="https://en.wikipedia.org/wiki/firebase" target="_blank">    
+                    <img id="firebase" src="/images/skill_icons/firebase.png" alt="no image"></img>
                 </a>   
-                <a href="https://en.wikipedia.org/wiki/Tailwind_CSS" target="_blank">    
-                    <img id="tailwind" src="/images/skill_icons/tailwind.png" alt="no image"></img>
+                <a href="https://en.wikipedia.org/wiki/vue.js" target="_blank">    
+                    <img id="vue" src="images/skill_icons/vue.png" alt="no image"></img>
                 </a>
             </div>
             <div id="skills_desc">

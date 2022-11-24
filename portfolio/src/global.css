@@ -142,7 +142,7 @@ hr {
   top: calc(50% - (75px)/2);
 }
  
-#docker {
+#firebase {
   left: calc(50% - (75px)/2);
   top: calc(100% - 75px);
 }
@@ -157,7 +157,7 @@ hr {
   top: calc(75% - 20px);
 }
 
-#tailwind {
+#vue {
   top: 70px;
   left: calc(75% - 20px);
 }
