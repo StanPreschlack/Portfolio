@@ -284,8 +284,8 @@ hr {
   height: fit-content;
   width: fit-content;
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
-  border: 2px solid #132a4f;
-  border-bottom: 10px solid #132a4f;
+  border: 2px solid var(--text-color);
+  border-bottom: 10px solid var(--text-color);
 }
 .project:hover {
   cursor: pointer;
@@ -330,12 +330,34 @@ hr {
 }
 #tec {
   position: relative;
-  left: 50%;
-  height: 20px;
-  transform: translate(5px, -5px);
+  height: fit-content;
+  font-size: 1rem;
 }
 #tec img {
   position: relative;
-  height: 10px;
-  margin-left: 10px;
+  height: 25px;
+  margin-top: 10px;
+  transition: 0.5s;
+  bottom: 0;
+}
+
+#tec p {
+  background-color: var(--text-color);
+  color: var(--theme-color);
+  margin-top: 10px;
+  font-size: 1.2rem;
+  padding: 10px;
+  text-align: center;
+  box-shadow: var(--text-color) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
+  transition: 0.5s;
+}
+
+#tec p:hover {
+  cursor: pointer;
+  box-shadow: var(--text-color) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+}
+
+#tec img:hover {
+  transform: translateY(-5px);
+  cursor: pointer;
 }

@@ -24,9 +24,9 @@ export default component$(({mode}: {mode: boolean}) => {
                     store.skillsVisible = true
                 }}>skills</button>
             </div>
-            {store.projectVisible? <Projects /> : null }
-            {store.skillsVisible? <Skills /> : null }
-            {store.homeVisible? <Home mode={mode} /> : null }
+            {store.projectVisible ? <Projects /> : null }
+            {store.skillsVisible ? <Skills /> : null }
+            {store.homeVisible ? <Home mode={mode} /> : null }
         </div>
     )
 })
