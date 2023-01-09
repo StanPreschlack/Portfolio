@@ -232,6 +232,8 @@ hr {
   color: var(--highlight-color);
 }
 
+/* here be mobile styling 🏴‍☠️ */
+
 @media (max-width: 1500px) {
   #main-name span:hover { 
     font-size: 3rem;
@@ -240,6 +242,9 @@ hr {
   }
   * {
     font-family: sans-serif;
+  }
+  #projects {
+    width: 95%;
   }
 }
 
@@ -307,12 +312,18 @@ hr {
   position: absolute;
   display: flex;
   flex-direction: column;
-  flex-wrap: wrap;
   width: fit-content;
-  height: fit-content;
+  height: 80vh;
   left: 50%;
   top: 200px;
   transform: translateX(-50%);
+  overflow-y: scroll;
+  padding: 50px;
+  padding-top: 0;
+}
+
+#projects > div[id=tec] {
+  margin-bottom: 50px;
 }
 
 #msg {
