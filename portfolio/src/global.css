@@ -248,6 +248,15 @@ hr {
   }
 }
 
+.webgl
+{
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    outline: none;
+}
+
 .proj-img img {
   position:relative;
   bottom: 0;

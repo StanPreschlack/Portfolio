@@ -22,6 +22,7 @@ export default component$(() => {
         <link rel="manifest" href="/manifest.json" />
       </head>
       <body lang="en">
+        <canvas class="webgl"></canvas>
         <Main mode={store.theme}/>
         <RouterOutlet />
         <ServiceWorkerRegister />
@@ -38,6 +39,7 @@ export default component$(() => {
             document.documentElement.style.setProperty('--highlight-color', 'rgb(237, 192, 67)')
           }
         }}>{store.theme? "Light" : "Dark"} theme</button>
+        <script type="module" src="/Users/spreschlack/Desktop/software projects/portfolio/portfolio/src/particles/particles.js"></script>
       </body>
     </QwikCity>
   )
