@@ -206,7 +206,7 @@ hr {
 
 #button_container button:hover {
   cursor: grab;
-  background-color: var(--theme-color);
+  background-color: transparent;
   border: 2px solid var(--text-color);
   color: var(--text-color);
 }
