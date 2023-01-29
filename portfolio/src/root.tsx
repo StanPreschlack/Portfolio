@@ -39,7 +39,7 @@ export default component$(() => {
             document.documentElement.style.setProperty('--highlight-color', 'rgb(237, 192, 67)')
           }
         }}>{store.theme? "Light" : "Dark"} theme</button>
-        <script type="module" src="portfolio/src/particles/particles.js"></script>
+        <script type="module" src="/Users/spreschlack/Desktop/software projects/portfolio/portfolio/src/particles/particles.js"></script>
       </body>
     </QwikCity>
   )
