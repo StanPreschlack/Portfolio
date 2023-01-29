@@ -27,6 +27,7 @@
     "@netlify/vite-plugin-netlify-edge": "1.1.0",
     "@types/eslint": "8.4.8",
     "@types/node": "latest",
+    "@types/three": "^0.148.1",
     "@typescript-eslint/eslint-plugin": "5.41.0",
     "@typescript-eslint/parser": "5.41.0",
     "eslint": "8.26.0",
