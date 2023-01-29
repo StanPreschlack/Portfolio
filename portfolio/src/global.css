@@ -5,10 +5,6 @@
  * the styles in here will be applied to the Document, without any sort of CSS scoping.
  *
  */
-@font-face {
-  font-family: main;
-  src: url('/fonts/Abril_Fatface/AbrilFatface-Regular.ttf');
-}
 
 :root {
   --text-color: #132a4f;
@@ -20,7 +16,7 @@
   padding: 0;
   margin: 0;
   cursor: default;
-  font-family: main;
+  font-family: Courier-New;
 }
 
 body {
@@ -240,13 +236,10 @@ hr {
     color: var(--highlight-color);
     text-shadow: none;  
   }
-  * {
-    font-family: sans-serif;
-  }
   #projects {
     width: 95%;
   }
-}
+} 
 
 .webgl
 {
