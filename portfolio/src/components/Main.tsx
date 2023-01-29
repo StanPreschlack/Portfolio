@@ -30,7 +30,7 @@ export default component$(({mode}: {mode: boolean}) => {
         const gradientTexture = textureLoader.load("textures/gradients/3.jpg")
         gradientTexture.magFilter = THREE.NearestFilter
 
-        const particlesCount = 1000
+        const particlesCount = 2000
         const positions = new Float32Array(particlesCount * 3)
 
         for (let i = 0; i < particlesCount; i++) {
@@ -42,20 +42,10 @@ export default component$(({mode}: {mode: boolean}) => {
         const particlesGeometry = new THREE.BufferGeometry()
         particlesGeometry.setAttribute("position", new THREE.BufferAttribute(positions, 3))
 
-        const particlesTexture = textureLoader.load("/images/particle/1.png")
-
         const particlesMaterial = new THREE.PointsMaterial({
-            alphaMap: particlesTexture,
-            alphaTest: 0.01,
-            transparent: true,
-            size: 0.05,
-            sizeAttenuation: true,
-            vertexColors: true,
+            color: new THREE.Color("#b300ff"),
+            size: 0.01,
         })
-
-        particlesMaterial.depthWrite = false
-        particlesMaterial.blending = THREE.AdditiveBlending
-
 
         const particles = new THREE.Points(particlesGeometry, particlesMaterial)
 
@@ -132,7 +122,6 @@ export default component$(({mode}: {mode: boolean}) => {
             renderer.setSize(sizes.width, sizes.height)
             renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2))
             
-
             const elapsedTime = clock.getElapsedTime()
             const deltaTime = elapsedTime - previousTime
             previousTime = elapsedTime
