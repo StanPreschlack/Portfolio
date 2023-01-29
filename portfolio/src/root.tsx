@@ -22,7 +22,6 @@ export default component$(() => {
         <link rel="manifest" href="/manifest.json" />
       </head>
       <body lang="en">
-        <canvas class="webgl"></canvas>
         <Main mode={store.theme}/>
         <RouterOutlet />
         <ServiceWorkerRegister />

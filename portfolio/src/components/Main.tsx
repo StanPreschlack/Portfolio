@@ -5,8 +5,10 @@ import Home from './Home'
 
 export default component$(({mode}: {mode: boolean}) => {
     const store = useStore({projectVisible: false, skillsVisible: false, homeVisible: true})
+
     return (
         <div>
+            <canvas class="webgl"></canvas>
             <div id="button_container">
                 <button className="learn-more" onClick$={() => {
                     store.homeVisible = false
@@ -27,6 +29,7 @@ export default component$(({mode}: {mode: boolean}) => {
             {store.projectVisible ? <Projects /> : null }
             {store.skillsVisible ? <Skills /> : null }
             {store.homeVisible ? <Home mode={mode} /> : null }
+            <script src="/src/particles/particles.js"></script>
         </div>
     )
 })

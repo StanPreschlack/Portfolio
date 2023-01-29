@@ -53,8 +53,6 @@ const particles = new THREE.Points(particlesGeometry, particlesMaterial)
 
 scene.add(particles)
 
-
-
 const cursor = {}
 cursor.x = 0
 cursor.y = 0
