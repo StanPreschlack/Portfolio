@@ -1,4 +1,4 @@
-import { component$, useStore, useStyles$ } from '@builder.io/qwik';
+import { component$, useClientEffect$, useStore, useStyles$ } from '@builder.io/qwik';
 import { QwikCity, RouterOutlet, ServiceWorkerRegister } from '@builder.io/qwik-city';
 import globalStyles from './global.css?inline';
 import Main from './components/Main'
@@ -22,22 +22,23 @@ export default component$(() => {
         <link rel="manifest" href="/manifest.json" />
       </head>
       <body lang="en">
+        {/* <canvas id="gc" width="400" height="400"></canvas> */}
         <Main mode={store.theme}/>
         <RouterOutlet />
         <ServiceWorkerRegister />
-        <button id="theme_button" onClick$={() => {
+        {/* <button id="theme_button" onClick$={() => {
           if (store.theme) {
             store.theme = false
-            document.documentElement.style.setProperty('--text-color', '#132a4f')
+            document.documentElement.style.setProperty('--text-color', '#238bca')
             document.documentElement.style.setProperty('--theme-color', '#fff')
             document.documentElement.style.setProperty('--highlight-color', 'rgb(255, 226, 146)')
           } else {
             store.theme = true
             document.documentElement.style.setProperty('--text-color', '#fff')
-            document.documentElement.style.setProperty('--theme-color', '#132a4f')
+            document.documentElement.style.setProperty('--theme-color', '#238bca')
             document.documentElement.style.setProperty('--highlight-color', 'rgb(237, 192, 67)')
           }
-        }}>{store.theme? "Light" : "Dark"} theme</button>
+        }}>{store.theme? "Light" : "Dark"} theme</button> */}
       </body>
     </QwikCity>
   )

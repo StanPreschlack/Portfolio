@@ -1,6 +1,7 @@
 import { component$ } from '@builder.io/qwik'
 
 export default component$(() => {
+    if (window.innerWidth > 500) {
     return (
         <>
             <div id="skill_icons">
@@ -36,4 +37,9 @@ export default component$(() => {
             </div>
         </>
     )
+    } else {
+        return (
+            <></>
+        )
+    }
 })

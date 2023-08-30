@@ -6,8 +6,19 @@
  *
  */
 
+@font-face {
+  font-family: main-font;
+  src: url("/Users/spreschlack/Desktop/software projects/portfolio/portfolio/public/fonts/JetBrains_Mono/static/JetBrainsMono-ExtraBold.ttf");
+}
+
+@font-face {
+  font-family: subtitle;
+  src: url("/fonts/JetBrains_Mono/static/JetBrainsMono-Regular.ttf");
+}
+
 :root {
-  --text-color: #132a4f;
+  /* --text-color: #132a4f; */
+  --text-color: #238bca;
   --theme-color: #fff;
   --hightlight-color: #b300ff;
 }
@@ -16,7 +27,7 @@
   padding: 0;
   margin: 0;
   cursor: default;
-  font-family: Courier-New;
+  font-family: subtitle;
 }
 
 body {
@@ -57,32 +68,35 @@ button styles
   left: 50%;
   top: 50%;
   transform: translate(-50%, -50%);
-  font-size: 3rem;
+  font-size: 2rem;
   cursor: arrow;
 }
 
 #main-name span {
-  transition: 2s;
+  transition: 1s;
   text-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
 }
 
 #main-name span:hover {
-  font-size: calc(6rem + 20px);
+  font-size: calc(6rem + 50px);
   color: var(--hightlight-color);
   text-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
 }
 
-#links img {
-  height: 40px;
-}
-
-#links img:hover {
-  border-bottom: 1px solid var(--hightlight-color);
-  cursor: grab;
-}
-
 #profile_img {
   height: 150px;
+}
+
+#links a {
+  all: revert;
+  text-decoration: none;
+  font-size: 1rem;
+  color: #888888;
+  font-family: subtitle;
+}
+
+#links span {
+  font-size: 1rem;
 }
 
 hr {
@@ -124,6 +138,7 @@ hr {
   width: 100px;
   cursor: grab;
 }
+
 
 #c {
   left: calc(50% - (75px)/2);
@@ -198,34 +213,17 @@ hr {
   max-width: 150px;
   margin-left: 10px;
   margin-right: 10px;
-  background-color: var(--text-color);
   border: 2px solid var(--theme-color);
-  color: var(--theme-color);
+  background: none;
+  color: #888888;
   font-size: 2vh;
 }
 
 #button_container button:hover {
   cursor: grab;
   background-color: transparent;
-  border: 2px solid var(--text-color);
+  border-bottom: 2px solid var(--text-color);
   color: var(--text-color);
-}
-
-#projects {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  color: var(--text-color);
-}
-
-#projects a {
-  color: var(--text-color); 
-}
-
-#projects a:hover {
-  cursor: pointer;
-  color: var(--highlight-color);
 }
 
 /* here be mobile styling 🏴‍☠️ */
@@ -261,71 +259,50 @@ hr {
 }
 
 .tooltiptext {
-  display: none;
-  width: 120px;
-  background-color: var(--text-color);
-  color: #fff;
-  text-align: center;
-  padding: 5px 0;
-  border-radius: 6px;
- 
-  /* Position the tooltip text - see examples below! */
-  position: absolute;
-  z-index: 1;
-}
-
-.project:hover .tooltiptext {
-  display: inline;
-  cursor: pointer;
-}
-
-.tooltiptext {
   color: var(--theme-color);
   background-color: var(--text-color);
 }
 
-.project {
-  position: relative;
-  left: 50%;
-  transform: translateX(-50%);
-  height: fit-content;
-  width: fit-content;
-  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
-  border: 2px solid var(--text-color);
-  border-bottom: 10px solid var(--text-color);
-}
-.project:hover {
-  cursor: pointer;
-  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
-}
-
-.project p {
-  text-align: center;
-  color: var(--text-color);
-  font-size: 2rem;
-  border-bottom: 2px solid var(--text-color);
-}
-
-.project a {
-  background-color: var(--highlight-color);
-}
-
 #projects {
   position: absolute;
-  display: flex;
-  flex-direction: column;
-  width: fit-content;
-  height: 80vh;
-  left: 50%;
-  top: 200px;
-  transform: translateX(-50%);
-  overflow-y: scroll;
   padding: 50px;
-  padding-top: 0;
+  transform: translate(-50%, -1150px);
+  left: 50%;
 }
 
-#projects > div[id=tec] {
-  margin-bottom: 50px;
+.project {
+  position: relative;
+  margin-bottom: 25px;
+  width: 500px;
+  padding: 25px;
+  border: 2px solid black;
+  border-radius: 15px;
+  transition: 0.5s;
+}
+
+.project:hover {
+  border: 2px solid var(--text-color);
+  background-color: white;
+}
+
+.project > p {
+  margin-bottom: 15px;
+}
+
+.project > a {
+  padding: 5px;
+  border: 1px solid black;
+  background-color: white;
+  color: var(--text-color);
+  border-radius: 3px;
+  transition: 0.5s;
+  /* figure out how to get rid of link underline!! */
+}
+
+.project > a:hover {
+  background-color: black;
+  color: white;
+  cursor: grab;
 }
 
 #msg {
@@ -346,6 +323,7 @@ hr {
   height: fit-content;
   font-size: 1rem;
 }
+
 #tec img {
   position: relative;
   height: 25px;
@@ -374,3 +352,56 @@ hr {
   transform: translateY(-5px);
   cursor: pointer;
 }
+
+#slashes {
+  color: black;
+}
+
+#main-name p span {
+  color: #888888;
+}
+
+@media (max-width: 1000px) {
+  #profile_img {
+    display: none;
+  }
+  #button_container {
+    display: none;
+  }
+  #main-name {
+    position: absolute;
+    color: var(--text-color);
+    text-align: center;
+    width: fit-content;
+    height: fit-content;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 2rem;
+    cursor: arrow;
+  }
+  
+  #main-name span {
+    transition: 1s;
+    text-shadow: none;
+    font-size: 8rem;
+  }
+  
+  #main-name span:hover {
+    font-size: 8rem;
+    color: var(--text-color);
+    text-shadow: none;
+  }
+  #s-d span {
+    font-size: 5rem;
+  }
+  #links span {
+    font-size: 2rem;
+    color: black;
+  }
+  #links a {
+    font-size: 2rem;
+    color: var(--text-color);
+  }
+}
+  

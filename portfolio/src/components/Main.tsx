@@ -5,12 +5,16 @@ import Home from './Home'
 import * as THREE from 'three'
 
 export default component$(({mode}: {mode: boolean}) => {
+    
     const store = useStore({projectVisible: false, skillsVisible: false, homeVisible: true})
 
     useClientEffect$(() => {
         /**
          * Base
          */
+
+        if (window.innerWidth > 1000) {
+
         // Canvas
         const canvas = document.querySelector('canvas.webgl')
 
@@ -20,6 +24,8 @@ export default component$(({mode}: {mode: boolean}) => {
         /**
          * Sizes
          */
+
+        
 
         const sizes = {
             width: window.innerWidth,
@@ -43,7 +49,7 @@ export default component$(({mode}: {mode: boolean}) => {
         particlesGeometry.setAttribute("position", new THREE.BufferAttribute(positions, 3))
 
         const particlesMaterial = new THREE.PointsMaterial({
-            color: new THREE.Color("#b300ff"),
+            color: new THREE.Color("#238BCA"),
             size: 0.01,
         })
 
@@ -141,31 +147,32 @@ export default component$(({mode}: {mode: boolean}) => {
         }
 
         tick()
-    })
+            }
+        })
 
-    return (
-        <div>
-            <canvas class="webgl"></canvas>
-            <div id="button_container">
-                <button className="learn-more" onClick$={() => {
-                    store.homeVisible = false
-                    store.projectVisible = true
-                    store.skillsVisible = false
-                }}>projects</button>
-                <button onClick$={() => {
-                    store.homeVisible = true
-                    store.projectVisible = false
-                    store.skillsVisible = false
-                }}>home</button>
-                <button onClick$={() => {
-                    store.homeVisible = false
-                    store.projectVisible = false
-                    store.skillsVisible = true
-                }}>skills</button>
-            </div>
-            {store.projectVisible ? <Projects /> : null }
-            {store.skillsVisible ? <Skills /> : null }
-            {store.homeVisible ? <Home mode={mode} /> : null }
-        </div>
-    )
+        return (
+            <>
+                <canvas class="webgl"></canvas>
+                <div id="button_container">
+                    <button className="learn-more" onClick$={() => {
+                        store.homeVisible = false
+                        store.projectVisible = true
+                        store.skillsVisible = false
+                    }}>projects</button>
+                    <button onClick$={() => {
+                        store.homeVisible = true
+                        store.projectVisible = false
+                        store.skillsVisible = false
+                    }}>home</button>
+                    <button onClick$={() => {
+                        store.homeVisible = false
+                        store.projectVisible = false
+                        store.skillsVisible = true
+                    }}>skills</button>
+                </div>
+                {store.projectVisible ? <Projects /> : null }
+                {store.skillsVisible ? <Skills /> : null }
+                {store.homeVisible ? <Home mode={mode} /> : null }
+            </>
+        )
 })
