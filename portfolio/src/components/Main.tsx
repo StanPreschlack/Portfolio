@@ -4,7 +4,7 @@ import Skills from './Skills'
 import Home from './Home'
 import * as THREE from 'three'
 
-export default component$(({mode}: {mode: boolean}) => {
+export default component$(() => {
     
     const store = useStore({projectVisible: false, skillsVisible: false, homeVisible: true})
 
@@ -172,7 +172,7 @@ export default component$(({mode}: {mode: boolean}) => {
                 </div>
                 {store.projectVisible ? <Projects /> : null }
                 {store.skillsVisible ? <Skills /> : null }
-                {store.homeVisible ? <Home mode={mode} /> : null }
+                {store.homeVisible ? <Home/> : null }
             </>
         )
 })

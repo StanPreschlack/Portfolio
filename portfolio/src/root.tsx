@@ -1,4 +1,4 @@
-import { component$, useClientEffect$, useStore, useStyles$ } from '@builder.io/qwik';
+import { component$, useStyles$ } from '@builder.io/qwik';
 import { QwikCity, RouterOutlet, ServiceWorkerRegister } from '@builder.io/qwik-city';
 import globalStyles from './global.css?inline';
 import Main from './components/Main'
@@ -12,9 +12,6 @@ export default component$(() => {
    */
   useStyles$(globalStyles);
 
-  // true is dark and false is light
-  const store = useStore({theme: false})
-
   return (
     <QwikCity>
       <head>
@@ -23,7 +20,7 @@ export default component$(() => {
       </head>
       <body lang="en">
         {/* <canvas id="gc" width="400" height="400"></canvas> */}
-        <Main mode={store.theme}/>
+        <Main/>
         <RouterOutlet />
         <ServiceWorkerRegister />
         {/* <button id="theme_button" onClick$={() => {
