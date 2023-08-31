@@ -139,7 +139,6 @@ hr {
   cursor: grab;
 }
 
-
 #c {
   left: calc(50% - (75px)/2);
 }
@@ -265,6 +264,10 @@ hr {
 
 #projects {
   position: absolute;
+  display: flex;
+  flex-direction: column;
+  justify-items: center;
+  align-items: center;
   padding: 50px;
   transform: translate(-50%, -1150px);
   left: 50%;
