@@ -16,7 +16,7 @@ export default component$(() => {
             <div class="project" id="project_three">
                 <h2>IoT Data Platform System as a Service (in progress)</h2>
                 <p>My current personal project is a data management service for individual users and companies who would like to be able to connect and manage IoT devices in their domain. It is designed to be easy to use and effective, leveraging many established services and libraries such as AWS IoT Core through a user friendly interface. It will also use powerful data JavaScript visualization libraries and Redis for caching and managing data streams. I will add a link to this project here once it is deployed, until then you can view my progress in the repository linked below.</p>
-                <a target='_blank'>View GitHub Repository</a>
+                <a href="https://github.com/StanPreschlack/IoTrac" target='_blank'>View GitHub Repository</a>
             </div>
         </div>
     )
