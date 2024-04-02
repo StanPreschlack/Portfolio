@@ -49,7 +49,7 @@ export default component$(() => {
                     <a rel="" href="https://github.com/StanPreschlack" target="_blank">GitHub</a>
                     {/** resume */}
                     <span>|</span>
-                    <a href="./assets/stan-preschlack-resume.pdf" download="Stan Preschlack Resume">Resume</a>
+                    <a href="./assets/resume.pdf" download="Stan Preschlack Resume">Resume</a>
                     <span>|</span>
                     {/* email */}
                     <a rel="" href="mailto:spp9311@nyu.edu" target="_blank">Email</a>
