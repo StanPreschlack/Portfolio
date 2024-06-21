@@ -1,178 +1,201 @@
-import { component$, useClientEffect$, useStore } from '@builder.io/qwik'
-import Projects from './Projects'
-import Skills from './Skills'
-import Home from './Home'
-import * as THREE from 'three'
+import { component$, useClientEffect$, useStore } from "@builder.io/qwik";
+import Projects from "./Projects";
+import Skills from "./Skills";
+import Home from "./Home";
+import * as THREE from "three";
 
 export default component$(() => {
-    
-    const store = useStore({projectVisible: false, skillsVisible: false, homeVisible: true})
+  const store = useStore({
+    projectVisible: false,
+    skillsVisible: false,
+    homeVisible: true,
+  });
 
-    useClientEffect$(() => {
-        /**
-         * Base
-         */
+  useClientEffect$(() => {
+    /**
+     * Base
+     */
 
-        if (window.innerWidth > 1000) {
+    if (window.innerWidth > 1000) {
+      // Canvas
+      const canvas = document.querySelector("canvas.webgl");
 
-            // Canvas
-            const canvas = document.querySelector('canvas.webgl')
+      // Scene
+      const scene = new THREE.Scene();
 
-            // Scene
-            const scene = new THREE.Scene()
+      /**
+       * Sizes
+       */
 
-            /**
-             * Sizes
-             */
+      const sizes = {
+        width: window.innerWidth,
+        height: window.innerHeight,
+      };
 
-            
+      const textureLoader = new THREE.TextureLoader();
+      const gradientTexture = textureLoader.load("textures/gradients/3.jpg");
+      gradientTexture.magFilter = THREE.NearestFilter;
 
-            const sizes = {
-                width: window.innerWidth,
-                height: window.innerHeight
-            }
+      const particlesCount = 2000;
+      const positions = new Float32Array(particlesCount * 3);
 
-            const textureLoader = new THREE.TextureLoader()
-            const gradientTexture = textureLoader.load("textures/gradients/3.jpg")
-            gradientTexture.magFilter = THREE.NearestFilter
+      for (let i = 0; i < particlesCount; i++) {
+        positions[i * 3] =
+          (Math.random() - 0.5) * (sizes.width / sizes.height) * 2;
+        positions[i * 3 + 1] =
+          (Math.random() - 0.5) * (sizes.width / sizes.height) * 2;
+        positions[i * 3 + 2] = (Math.random() - 0.5) * 10;
+      }
 
-            const particlesCount = 2000
-            const positions = new Float32Array(particlesCount * 3)
+      const particlesGeometry = new THREE.BufferGeometry();
+      particlesGeometry.setAttribute(
+        "position",
+        new THREE.BufferAttribute(positions, 3)
+      );
 
-            for (let i = 0; i < particlesCount; i++) {
-                positions[i * 3] = (Math.random() - 0.5) * (sizes.width / sizes.height) * 2
-                positions[i * 3 + 1] = (Math.random() - 0.5) * (sizes.width / sizes.height) * 2
-                positions[i * 3 + 2] = (Math.random() - 0.5) * 10
-            }
+      const particlesMaterial = new THREE.PointsMaterial({
+        color: new THREE.Color("#238BCA"),
+        size: 0.01,
+      });
 
-            const particlesGeometry = new THREE.BufferGeometry()
-            particlesGeometry.setAttribute("position", new THREE.BufferAttribute(positions, 3))
+      const particles = new THREE.Points(particlesGeometry, particlesMaterial);
 
-            const particlesMaterial = new THREE.PointsMaterial({
-                color: new THREE.Color("#238BCA"),
-                size: 0.01,
-            })
+      scene.add(particles);
 
-            const particles = new THREE.Points(particlesGeometry, particlesMaterial)
+      const cursor = {
+        x: 0,
+        y: 0,
+      };
 
-            scene.add(particles)
+      window.addEventListener("mousemove", (event) => {
+        cursor.x = event.clientX / sizes.width - 0.5;
+        cursor.y = event.clientY / sizes.height - 0.5;
+      });
 
-            const cursor = {
-                x: 0,
-                y: 0
-            }
+      // lights
 
-            window.addEventListener("mousemove", (event) => {
-                cursor.x = (event.clientX / sizes.width) - 0.5
-                cursor.y = (event.clientY / sizes.height) - 0.5
-            })
+      const directionalLight = new THREE.DirectionalLight("#ffffff", 1);
+      directionalLight.position.set(1, 1, 0);
 
-            // lights
+      scene.add(directionalLight);
 
-            const directionalLight = new THREE.DirectionalLight("#ffffff", 1)
-            directionalLight.position.set(1, 1, 0)
+      window.addEventListener("resize", () => {
+        // Update sizes
+        sizes.width = window.innerWidth;
+        sizes.height = window.innerHeight;
 
-            scene.add(directionalLight)
+        // Update camera
+        camera.aspect = sizes.width / sizes.height;
+        camera.updateProjectionMatrix();
 
-            window.addEventListener('resize', () =>
-            {
-                // Update sizes
-                sizes.width = window.innerWidth
-                sizes.height = window.innerHeight
+        // Update renderer
+        renderer.setSize(sizes.width, sizes.height);
+        renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+      });
 
-                // Update camera
-                camera.aspect = sizes.width / sizes.height
-                camera.updateProjectionMatrix()
+      /**
+       * Camera
+       */
 
-                // Update renderer
-                renderer.setSize(sizes.width, sizes.height)
-                renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2))
-            })
+      const cameraGroup = new THREE.Group();
+      scene.add(cameraGroup);
 
-            /**
-             * Camera
-             */
+      // Base camera
+      const camera = new THREE.PerspectiveCamera(
+        35,
+        sizes.width / sizes.height,
+        0.1,
+        100
+      );
+      camera.position.z = 6;
+      cameraGroup.add(camera);
 
-            const cameraGroup = new THREE.Group()
-            scene.add(cameraGroup)
+      /**
+       * Renderer
+       */
+      const renderer = new THREE.WebGLRenderer({
+        // @ts-ignore
+        canvas: canvas,
+        alpha: true,
+      });
 
-            // Base camera
-            const camera = new THREE.PerspectiveCamera(35, sizes.width / sizes.height, 0.1, 100)
-            camera.position.z = 6
-            cameraGroup.add(camera)
+      /**
+       * Animate
+       */
+      const clock = new THREE.Clock();
 
-            /**
-             * Renderer
-             */
-            const renderer = new THREE.WebGLRenderer({
-                // @ts-ignore
-                canvas: canvas,
-                alpha: true,
-            })
+      let previousTime = 0;
 
-            /**
-             * Animate
-             */
-            const clock = new THREE.Clock()
+      const tick = () => {
+        sizes.width = window.innerWidth;
+        sizes.height = window.innerHeight;
 
-            let previousTime = 0
+        camera.aspect = sizes.width / sizes.height;
+        camera.updateProjectionMatrix();
 
-            const tick = () =>
-            {
-                sizes.width = window.innerWidth
-                sizes.height = window.innerHeight
+        renderer.setSize(sizes.width, sizes.height);
+        renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
 
-                camera.aspect = sizes.width / sizes.height
-                camera.updateProjectionMatrix()
-                
-                renderer.setSize(sizes.width, sizes.height)
-                renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2))
-                
-                const elapsedTime = clock.getElapsedTime()
-                const deltaTime = elapsedTime - previousTime
-                previousTime = elapsedTime
+        const elapsedTime = clock.getElapsedTime();
+        const deltaTime = elapsedTime - previousTime;
+        previousTime = elapsedTime;
 
-                // canvas scroll
+        // canvas scroll
 
-                const parallaxX = cursor.x * 0.5
-                const parallaxY = - cursor.y * 0.5
-                cameraGroup.position.x += (parallaxX - cameraGroup.position.x)  * deltaTime
-                cameraGroup.position.y += (parallaxY - cameraGroup.position.y)  * deltaTime
+        const parallaxX = cursor.x * 0.5;
+        const parallaxY = -cursor.y * 0.5;
+        cameraGroup.position.x +=
+          (parallaxX - cameraGroup.position.x) * deltaTime;
+        cameraGroup.position.y +=
+          (parallaxY - cameraGroup.position.y) * deltaTime;
 
-                // Render
-                renderer.render(scene, camera)
+        // Render
+        renderer.render(scene, camera);
 
-                // Call tick again on the next frame
-                window.requestAnimationFrame(tick)
-            }
+        // Call tick again on the next frame
+        window.requestAnimationFrame(tick);
+      };
 
-            tick()
-            }
-        })
+      tick();
+    }
+  });
 
-        return (
-            <>
-                <canvas class="webgl"></canvas>
-                <div id="button_container">
-                    <button className="learn-more" onClick$={() => {
-                        store.homeVisible = false
-                        store.projectVisible = true
-                        store.skillsVisible = false
-                    }}>projects</button>
-                    <button onClick$={() => {
-                        store.homeVisible = true
-                        store.projectVisible = false
-                        store.skillsVisible = false
-                    }}>home</button>
-                    <button onClick$={() => {
-                        store.homeVisible = false
-                        store.projectVisible = false
-                        store.skillsVisible = true
-                    }}>skills</button>
-                </div>
-                {store.projectVisible ? <Projects /> : null }
-                {store.skillsVisible ? <Skills /> : null }
-                {store.homeVisible ? <Home/> : null }
-            </>
-        )
-})
+  return (
+    <>
+      <canvas class="webgl"></canvas>
+      <div id="button_container">
+        <button
+          className="learn-more"
+          onClick$={() => {
+            store.homeVisible = false;
+            store.projectVisible = true;
+            store.skillsVisible = false;
+          }}
+        >
+          projects
+        </button>
+        <button
+          onClick$={() => {
+            store.homeVisible = true;
+            store.projectVisible = false;
+            store.skillsVisible = false;
+          }}
+        >
+          home
+        </button>
+        <button
+          onClick$={() => {
+            store.homeVisible = false;
+            store.projectVisible = false;
+            store.skillsVisible = true;
+          }}
+        >
+          skills
+        </button>
+      </div>
+      {store.projectVisible ? <Projects /> : null}
+      {store.skillsVisible ? <Skills /> : null}
+      {store.homeVisible ? <Home /> : null}
+    </>
+  );
+});
